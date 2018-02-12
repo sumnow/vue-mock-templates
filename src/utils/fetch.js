@@ -34,7 +34,6 @@ const fetch = configs => {
     if (config.method === 'DELETE') {
       config.data = {};
     }
-
     return new Promise((resovle, reject) => {
       axios(config)
         .then((res) => {
@@ -55,7 +54,6 @@ const fetch = configs => {
     } else {
       config.data = configs.params;
     }
-    console.log(config)
     return new Promise((resovle, reject) => {
       axios(config)
         .then(res => {

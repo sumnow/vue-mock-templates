@@ -5,8 +5,7 @@
 </template>
 
 <script>
-import obj from '../services'
-
+import services from '../services'
 
 export default {
   name: 'HelloWorld',
@@ -17,7 +16,7 @@ export default {
   },
   methods: {
     sendTest () {
-      obj.apiIn({date: '123'})
+      services.apiIn({date: '123'})
     }
   }
 }
