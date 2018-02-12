@@ -1,8 +1,6 @@
 import fetch from '../utils/fetch';
-import API_test_list from './testAPI'
+import API_test from './testAPI'
 
-// mock 地址
-const API_test_HOST = 'http://138.128.192.220:9000'
 
 // 接口
 const obj = {
@@ -10,28 +8,38 @@ const obj = {
   apiNot: {url: '/wechat/config', method:'post'},
 }
 
+
+
 const filterAPIinTest =  (obj) => {
+
+  // mock 地址
+  const API_test_HOST = 'http://138.128.192.220:9000'
+
+  const API_test_list = Object.keys(API_test)
+
   const outobj = {}
 
-  Object.keys(obj).filter((e)=> API_test_list.includes(e)).map(e=>{
-    obj[e].url= `${API_test_HOST}${obj[e].url}`;
-    obj[e].message = `$m.rint(1,3)`;
-    obj[e].method = 'GET';
-  })
+  const _initParam  = obj => {
+    Object.keys(obj).filter((e)=> API_test_list.includes(e)).map(e=>{
+      obj[e].url= `${API_test_HOST}${obj[e].url}`;
+      obj[e].message = API_test[e];
+      obj[e].method = 'GET';
+    })
+  }
+
+
+  _initParam(obj)
 
   Object.keys(obj).map(e=>{
-    let c = obj[e]
-    outobj[e] = params => {
-      // let {{url, params, method}} = {{url: c.url, params, method: c.method}}
-      const configs = {
-        url:c.url,
-        params: params,
-        method:c.method
-      }
+    const c = obj[e]
+    outobj[e] = param => {
+      const {config, config:{url, params, method}} = {config:{url: c.url, params:param, method: c.method}}
+      const configs = config
       configs.params.message = c.message
       fetch(configs)
     }
   })
+
   return outobj
 }
 
