@@ -1,6 +1,5 @@
 
 export default {
-  "apiIn": '$m.rint(10, 30)'
+  "apiIn": `$m.obj({data:$m.rint(1,3)})`,
 }
-
 

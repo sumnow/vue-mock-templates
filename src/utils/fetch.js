@@ -57,8 +57,9 @@ const fetch = configs => {
     return new Promise((resovle, reject) => {
       axios(config)
         .then(res => {
-          if (res.data && res.data.result) {
-            resovle(res.data.body);
+          console.log(res.data)
+          if (res.data || res.data.result) {
+            resovle(res.data);
           } else {
             reject(res.data || 'fetch__err');
           }
