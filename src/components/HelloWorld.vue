@@ -16,7 +16,9 @@ export default {
   },
   methods: {
     sendTest () {
-      services.apiIn({date: '123'})
+      services.apiIn2({date: '123'},13)
+      services.apiIn3({date: '123'},13)
+      services.apiIn({data:'123'},13)
     }
   }
 }
