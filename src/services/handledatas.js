@@ -3,15 +3,15 @@ import API_test from './testAPI'
 
 
 // update datas by mock datas
-const _initParam = obj => {
+const _initParam = (obj, e) => {
 
   // mock address
+  // const API_test_HOST = 'http://138.128.192.220:9000'
+  const API_test_HOST = 'http://localhost:9000'
 
-  Object.keys(obj).map(e => {
-    obj[e].url = `${API_test_HOST}${obj[e].url}`;
-    obj[e].$m_message = API_test[e];
-    obj[e].method = 'GET';
-  })
+  obj[e].url = `${API_test_HOST}${obj[e].url}`;
+  obj[e].$m_message = API_test[e].replace(/[\r\n]/g, "").replace(/\ +/g, "");
+  obj[e].method = 'GET';
 
   return obj
 }
@@ -19,7 +19,6 @@ const _initParam = obj => {
 const _handleParams = obj => {
 
   const API_test_list = Object.keys(API_test)
-  const API_test_HOST = 'http://138.128.192.220:9000'
 
   const outobj = {}
 
@@ -27,9 +26,8 @@ const _handleParams = obj => {
     if (typeof obj[e] === 'function') {
       outobj[e] = (param, ...args) => {
         obj[e] = obj[e](...args)
-        obj[e].url = `${API_test_HOST}${obj[e].url}`;
-        obj[e].$m_message = API_test[e];
-        obj[e].method = 'GET';
+        _initParam(obj, e)
+        console.log(obj[e].$m_message)
         const c = obj[e]
         const { config, config: { url, params, method } } = { config: { url: c.url, params: param, method: c.method } }
         const configs = config
@@ -37,9 +35,9 @@ const _handleParams = obj => {
         fetch(configs)
       }
     } else {
-      obj[e].url = `${API_test_HOST}${obj[e].url}`;
-      obj[e].$m_message = API_test[e];
-      obj[e].method = 'GET';
+      _initParam(obj, e)
+      console.log(obj[e].$m_message)
+      const c = obj[e]
       outobj[e] = param => {
         const { config, config: { url, params, method } } = { config: { url: c.url, params: param, method: c.method } }
         const configs = config
@@ -52,6 +50,8 @@ const _handleParams = obj => {
 
   return outobj
 }
+
+
 
 // const _handleParams = obj => {
 //   const outobj = {}
