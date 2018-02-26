@@ -23,29 +23,17 @@ const _handleParams = obj => {
   const outobj = {}
 
   Object.keys(obj).filter((e) => API_test_list.includes(e)).map(e => {
-    if (typeof obj[e] === 'function') {
-      outobj[e] = (param, ...args) => {
+    outobj[e] = (param, ...args) => {
+      if (typeof obj[e] === 'function') {
         obj[e] = obj[e](...args)
-        _initParam(obj, e)
-        console.log(obj[e].$m_message)
-        const c = obj[e]
-        const { config, config: { url, params, method } } = { config: { url: c.url, params: param, method: c.method } }
-        const configs = config
-        configs.params.$m_message = c.$m_message
-        fetch(configs)
       }
-    } else {
       _initParam(obj, e)
-      console.log(obj[e].$m_message)
       const c = obj[e]
-      outobj[e] = param => {
-        const { config, config: { url, params, method } } = { config: { url: c.url, params: param, method: c.method } }
-        const configs = config
-        configs.params.$m_message = c.$m_message
-        fetch(configs)
-      }
+      const { config, config: { url, params, method } } = { config: { url: c.url, params: param, method: c.method } }
+      const configs = config
+      configs.params.$m_message = c.$m_message
+      fetch(configs)
     }
-
   })
 
   return outobj
