@@ -2,12 +2,17 @@ import filterAPIinTest from './handledatas'
 
 // interfaces
 const obj = {
-  apiIn: id => {
-    return {url: `/wechat/${id}`, method: 'post'}
-  },
+  apiIn: id => {return {url: `/wechat/${id}`, method: 'post'}},
   apiIn2: {url: '/wechat/asd', method:'post'},
   apiIn3: {url: '/wechat/es', method:'post'},
   apiNot: {url: '/wechat/config', method:'post'},
 }
 
-export default filterAPIinTest(obj)
+const outobj = filterAPIinTest(obj)
+
+
+const {apiIn, apiIn2, apiIn3} = outobj;
+
+console.log(apiIn)
+
+export {apiIn, apiIn2, apiIn3}

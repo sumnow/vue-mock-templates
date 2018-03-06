@@ -65,6 +65,7 @@ const fetch = configs => {
           }
         })
         .catch(err => {
+          console.log(err)
           reject((err.response && err.response.data && err.response.data.body) || 'request fail');
         });
     });

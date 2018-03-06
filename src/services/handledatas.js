@@ -26,13 +26,14 @@ const _handleParams = obj => {
     outobj[e] = (param, ...args) => {
       if (typeof obj[e] === 'function') {
         obj[e] = obj[e](...args)
+        console.log(obj[e])
       }
       _initParam(obj, e)
       const c = obj[e]
       const { config, config: { url, params, method } } = { config: { url: c.url, params: param, method: c.method } }
       const configs = config
       configs.params.$m_message = c.$m_message
-      fetch(configs)
+      return fetch(configs)
     }
   })
 
