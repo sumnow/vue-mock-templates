@@ -30,7 +30,7 @@ const _handleParams = obj => {
 
   Object.keys(obj).map(e => {
 
-    outobj[e] = (param, ...args) => {
+    outobj[e] = (param = {}, ...args) => {
 
       if (typeof obj[e] === 'function') {
         obj[e] = obj[e](...args)
