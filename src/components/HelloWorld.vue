@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {apiIn, apiIn2, apiIn3} from '../services'
+import services from '../services'
 
 export default {
   name: 'HelloWorld',
@@ -16,9 +16,10 @@ export default {
   },
   methods: {
     sendTest () {
-      apiIn2({date: '123'},13)
-      apiIn3({date: '123'},13)
-      apiIn({data:'123'},13)
+      services.apiIn({data:'123'},13).then((res)=>{
+        console.log(res)
+      })
+      services.apiIn3({data:'123'},13)
     }
   }
 }
