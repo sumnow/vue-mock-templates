@@ -8,11 +8,9 @@ const obj = {
   apiNot: {url: '/wechat/config', method:'post'},
 }
 
-const outobj = filterAPIinTest(obj)
 
+// const {apiIn, apiIn2, apiIn3} = filterAPIinTest(obj);
 
-const {apiIn, apiIn2, apiIn3} = outobj;
+// export {apiIn, apiIn2, apiIn3}
 
-console.log(apiIn)
-
-export {apiIn, apiIn2, apiIn3}
+export default filterAPIinTest(obj)
