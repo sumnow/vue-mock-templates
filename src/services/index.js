@@ -9,8 +9,8 @@ const obj = {
 }
 
 
+// single type  
 // const {apiIn, apiIn2, apiIn3} = filterAPIinTest(obj);
-
 // export {apiIn, apiIn2, apiIn3}
 
 export default filterAPIinTest(obj)
