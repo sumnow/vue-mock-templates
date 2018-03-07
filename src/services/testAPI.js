@@ -1,6 +1,8 @@
 export default {
   "apiIn": `$m.obj({
-    data: $m.arr(1,30,"{name: $m.arr(1,30,'cstr',1)}")
+    name: $m.cstr(2,4),
+    age: $m.rint(10,30),
+    scores: $m.arr(2,2,"{course: 'str(3,10)',score: 'rint(1,100)' }")
   })`,
   "apiIn2": `$m.obj({
     data: $m.arr(1,30,{name: "tom")})
