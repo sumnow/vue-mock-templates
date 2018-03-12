@@ -13,4 +13,5 @@ const obj = {
 // const {apiIn, apiIn2, apiIn3} = filterAPIinTest(obj);
 // export {apiIn, apiIn2, apiIn3}
 
+// export object
 export default filterAPIinTest(obj)
