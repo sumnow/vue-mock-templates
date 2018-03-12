@@ -11,12 +11,15 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Mock-Vue app'
     }
   },
   methods: {
     sendTest () {
       services.apiIn({data:'123'},13).then((res)=>{
+        console.log(res)
+      })
+      services.apiIn2({data:'123'},13).then((res)=>{
         console.log(res)
       })
       services.apiIn3({data:'123'},13)
