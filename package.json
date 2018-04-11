@@ -1,6 +1,6 @@
 {
     "name": "vue-mock-templates",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "A plugin for quick create vue template",
     "main": "index.js",
     "directories": {
@@ -12,6 +12,11 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sumnow/vue-mock-templates"
+    },
+    "author": "mydia@foxmail.com",
     "keywords": [
         "vue",
         "cli",
