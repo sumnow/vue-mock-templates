@@ -28,7 +28,7 @@ exports.run = function (pname) {
                 console.log()
                 console.log(normal('default port :8088'))
                 console.log()
-                console.log(normal('Documentation can be found at https://github.com/sumnow/vue-templates'))
+                console.log(normal('Documentation can be found at https://github.com/sumnow/vue-mock-templates'))
             })
         }
     });
