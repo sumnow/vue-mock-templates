@@ -1,38 +1,19 @@
-# 集成localMock的vue-template
+# vue-mock-templates
 
-集成了 [localMock](https://github.com/sumnow/localMock) 功能的 `vue-cli` ，
+快速创建vue-mock-template 模版
 
-    npm install
+    npm i vue-mock-templates
 
-    cd vue-templates & npm run dev
+    mockvue c myproject
 
-打开 `localhost:8080` 查看效果，点击文字发起Mock请求，主要关注请求为services目录下，
+    cd myproject & yarn
 
-    // index.js
-    // 请求的配置
-    const obj = {
-        apiIn: id => {return {url: `/wechat/${id}`, method: 'post'}},
-        apiIn2: {url: '/wechat/asd', method:'post'},
-        apiIn3: {url: '/wechat/es', method:'post'},
-        apiNot: {url: '/wechat/config', method:'post'},
-    }
+    yarn dev
 
-    export default filterAPIinTest(obj)
+### 依赖
 
-属性值可以为函数或者对象，同 `$.ajax` 的参数方式，包括 `url` , `method` 等，如果配置项为可变属性，则输入函数即可。
+    "chalk": "^2.1.0",
+    "commander": "^2.11.0",
+    "fs-extra": "^4.0.2"
 
-    // testAPI.js
-    export {
-        "apiIn": `$m.obj({name: cstr(2,3)})`
-    }
-
-testAPI里配置每个接口的mock返回值，按照 `locaMock` 的语法，只有再testAPI里的接口才会被Mock，其他的接口都不会，可以渐进式地替换Mock数据。
-    
-
-
-
-
-
-
-
-
+    https://github.com/sumnow/vue-templates
