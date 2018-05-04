@@ -5,8 +5,14 @@ import App from './App'
 import router from './router'
 import store from './store';
 import rem from './utils/rem';
+import Log from 'console_colorpoint'
 
 Vue.config.productionTip = false
+
+window.log = new Log ()
+
+log.green ([12,3,4])
+log.blue([1,23,21],function asr(){return 1})
 
 store.dispatch('changeFont',1/rem());
 

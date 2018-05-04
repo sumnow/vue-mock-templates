@@ -1,6 +1,6 @@
 {
     "name": "vue-mock-templates",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "A plugin for quick create vue template",
     "main": "index.js",
     "directories": {

@@ -38,7 +38,7 @@ const fetch = configs => {
     config.data = {};
   }
   return new Promise((resovle, reject) => {
-    console.log('config',config)
+    // console.log('config',config)
     axios(config)
       .then(res => {
         resovle(res.data);

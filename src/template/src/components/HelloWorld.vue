@@ -17,10 +17,10 @@ export default {
   methods: {
     sendTest () {
       services.apiIn({data:'123'},13).then((res)=>{
-        console.log(res)
+        log.green('line 20',res)
       })
       services.apiIn2({data:'123'},13).then((res)=>{
-        console.log(res)
+        log.blue(res)
       })
       services.apiIn3({data:'123'},13)
     }
