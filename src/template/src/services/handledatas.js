@@ -5,7 +5,7 @@ import API_test from './testAPI'
 const filterUrl = str => {
 
   // mock address
-  const API_test_HOST = 'http://138.128.192.220:9000'
+  const API_test_HOST = 'http://67.209.183.20:9000'
   // const API_test_HOST = 'http://localhost:9000'
 
   return str.indexOf('http') !== 0 ? `${API_test_HOST}${str}` : str
